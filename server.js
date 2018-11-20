@@ -5,12 +5,13 @@ const express = require('express');
 const cors = require('cors');
 
 //load environment variables with DotENV
-require('dotenv').config; //environment variable
+require('dotenv').config(); //environment variable
 const app = express(); //create app instance
-app.use(cors());
+
 
 //Application setup
 const PORT = process.env.PORT;
+app.use(cors());
 
 //API Routes
 app.get('/location', (request, response) => {
