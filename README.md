@@ -7,6 +7,6 @@ Estimate of time needed to complete: 2 hrs__
 
 Start time: _8:25____
 
-Finish time: _____
+Finish time: _10:20
 
-Actual time needed to complete: _____
+Actual time needed to complete: 1:55
