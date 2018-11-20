@@ -1,11 +1,11 @@
 # class06-server.js
 back end build out
 pair programmed with Brent Williams
-Number and name of feature: ________________________________
+Number and name of feature: #1 Obtain Latitude and Longitude
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 2 hrs__
 
-Start time: _____
+Start time: _8:25____
 
 Finish time: _____
 
