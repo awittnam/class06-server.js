@@ -3,10 +3,10 @@ back end build out
 pair programmed with Brent Williams
 Number and name of feature: #1 Obtain Latitude and Longitude
 
-Estimate of time needed to complete: 2 hrs__
+Estimate of time needed to complete: 2 hr
 
-Start time: _8:25____
+Start time:  8:25am
 
-Finish time: _____
+Finish time:  10:20am
 
-Actual time needed to complete: _____
+Actual time needed to complete:  1:55
