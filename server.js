@@ -2,7 +2,7 @@
 
 //applications dependencies (express and CORS)
 const express = require('express');
-const superagent = required('superagent');
+const superagent = require('superagent');
 const cors = require('cors');
 
 //load environment variables with DotENV
@@ -20,6 +20,8 @@ app.get('/location', (request, response) => {
     .then( (location) => response.send(location))
     .catch((error) => handleError(error, response));
 });
+
+
 
 //Helper Functions    ****NEED TO PUT IN URL!!!!!!!
 function searchToLatLong(query) {
