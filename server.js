@@ -2,6 +2,7 @@
 
 //applications dependencies (express and CORS)
 const express = require('express');
+const superagent = required('superagent');
 const cors = require('cors');
 
 //load environment variables with DotENV
@@ -15,25 +16,33 @@ app.use(cors());
 
 //API Routes
 app.get('/location', (request, response) => {
-  console.log(request.query.data, 'Is the query that came from the search field in the browser.'); //this is how we will send the actual query when we move to real date rather than mocked date.
-  const locationData = searchToLatLong(request.query.data); //this is what gets sent back to the browser
-  console.log(locationData);
-  response.send(locationData);
+  searchToLatLong(request.query.data)
+    .then( (location) => response.send(location))
+    .catch((error) => handleError(error, response));
 });
 
-//Helper Functions
+//Helper Functions    ****NEED TO PUT IN URL!!!!!!!
 function searchToLatLong(query) {
-  const geoData = require('./data/geo.json');
-  const location = new Location(geoData.results[0]);
-  location.search_query = query; //adding our actual search query back on and sending it back to the browser
-  return location;
+  const url =  ;  //need URL
+
+  return superagent.get(url)
+  .then( (res) => {
+    return new Location(query, res);
+  })
+  .catch((error, res) => handleError(error, err));
+}
+
+function handleError(error, res) {
+  console.error(error);
+  if (res) res.status(500).send('Sorry, something broke');
 }
 
 //this is the constructor we are using to tidy up the data and send the browser only the information that it needs.
-function Location(data){
-  this.formatted_query = data.formatted_address;
-  this.latitude = data.geometry.location.lat;
-  this.longitude = data.geometry.location.lng;
+function Location(query, data){
+  this.search_query = query;
+  this.formatted_query = data.body.results[0].formatted_address;
+  this.latitude = data.body.results[0].geometry.location.lat;
+  this.longitude = data.body.results[0].geometry.location.lng;
 }
 
 
